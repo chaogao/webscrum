@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webscrum</title>
+  <%= stylesheet_link_tag "application"%>
+  <%= stylesheet_link_tag "jMonthCalendar"%>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jMonthCalendar" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "/shared/nav" %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <%= render :partial => "/shared/nav_scrum" %>
+      </div>
+      <div class="span10">
+        <%= render :partial => "/shared/flash_list" %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <%= render :partial => "/templates/template_scrum" %>
+  <%= javascript_include_tag "business.schedules" %>
+</body>
+</html>

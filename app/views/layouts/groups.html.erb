@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webscrum</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jMonthCalendar" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "/shared/nav" %>
+  <%= render :partial => "/shared/flash_list" %>
+  <%= yield %>
+  <%= javascript_include_tag "business.groups" %>
+</body>
+</html>

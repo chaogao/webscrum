@@ -1,0 +1,33 @@
+<h1>Listing ftypes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Catalog</th>
+    <th>Owner</th>
+    <th>Show</th>
+    <th>Description</th>
+    <th>Ruler</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ftypes.each do |ftype| %>
+  <tr>
+    <td><%= ftype.name %></td>
+    <td><%= ftype.catalog %></td>
+    <td><%= ftype.user_id %></td>
+    <td><%= ftype.show %></td>
+    <td><%= ftype.description %></td>
+    <td><%= ftype.ruler %></td>
+    <td><%= link_to 'Show', ftype %></td>
+    <td><%= link_to 'Edit', edit_ftype_path(ftype) %></td>
+    <td><%= link_to 'Destroy', ftype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ftype', new_ftype_path %>

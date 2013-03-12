@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  feature_id: 1
+  report_id: 1
+  description: MyString
+  progress_increment: 1
+
+two:
+  feature_id: 1
+  report_id: 1
+  description: MyString
+  progress_increment: 1

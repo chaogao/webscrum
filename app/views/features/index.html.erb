@@ -1,0 +1,7 @@
+<% unless @features %>
+  <p class="text-warning">This Week, You have no feature, Please add them</p>
+<% end %>
+<% @features.each do |feature| %>
+  <p><%= feature.name %></p>
+<% end %>
+<%= link_to "Add One Feature", :action => "new" %>

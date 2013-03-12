@@ -1,0 +1,27 @@
+<% if @report.errors.any? %>
+<div id="error_explanation">
+  <h5><%= pluralize(@report.errors.count, "error") %> prohibited this group from being saved:</h5>
+  <ul>
+  <% @report.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_for(@report) do |f| %>
+  <h4>This week features</h4>
+  <ul>
+    <% @features.each do |feature| %>
+      <li>
+        <h4><%= feature.name %> &nbsp; Progress: <%= feature.progress %></h4> 
+        Increment: <%= text_field_tag "progress_increment[]" %></br>
+        Description: <%= text_field_tag "description[]" %>
+        <%= hidden_field_tag "feature_id[]", feature.id %>
+      </li>
+    <% end %>
+  </ul>
+  <p>RepotrTile: <%= f.text_field :title, :value => @date.to_s + "@" + @user.name, :size => 30%></p>
+  <p>Content: <%= f.text_field :content, :size => 30 %></p>
+  <p><%= f.hidden_field :created_date, :value => @date %></p>
+  <p><%= f.submit %></p>
+<% end %>

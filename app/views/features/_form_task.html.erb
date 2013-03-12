@@ -1,0 +1,48 @@
+<div class="tab-pane fade active in" id="f-task">
+  <%= form_for(@feature, :html => {:class => "form-horizontal"}) do |f| %>
+    <div class="well">
+      <div class="ftype-list">
+        <span class="label label-info" rel="tooltip" title="选择一项任务，搞起吧！">来选一项吧！</span>
+        <div class="btn-group ftype-buttons" data-toggle="buttons-radio">
+          <% @ftypes.each do |ftype| %>
+              <a type="button" class="btn" data-option="<%= ftype.to_json(:only => [:id, :name, :catalog, :show], :include => {:rulers => {:only => [:name, :title, :hide, :default]}}) %>"><%= ftype.name %></a>
+          <% end %>
+        </div>
+        <div id="ftype-detail" class="media"></div>
+        <input id="ftype" name="ftype" type="hidden">
+      </div>
+      <hr style="margin-top: 0px;">
+      <div class="control-group">
+        <%= label_tag "name", "标题", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :name, {:size => 30, :placeholder => "来个名字唄", :require => true} %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag "start", "开始|结束日期", :class => "control-label" %>
+        <div class="controls" id="f-datepickers">
+            <input name="feature[start]" placeholder="开始日期" size="16" type="text" value="<%= @date.to_s %>"  data-date-format="yyyy-mm-dd">
+            <span class="divider">|</span>
+            <input name="feature[end]" placeholder="结束日期" size="16" type="text" data-date-format="yyyy-mm-dd">
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag "plane_days", "预计使用天数", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :plane_days, {:size => 10, :placeholder => "预计使用天数", :require => true} %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag "description", "描述", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_area :description, {:rows => 5, :placeholder => "描述（可以不填）", :require => true} %>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "提交任务", :class=> "btn" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

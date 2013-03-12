@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webscrum</title>
+  <%= stylesheet_link_tag "application"%>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render :partial => "/shared/nav" %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2"></div>
+      <div class="span10">
+        <%= render :partial => "/shared/flash_list" %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <%= javascript_include_tag "business.ftypes" %>
+</body>
+</html>

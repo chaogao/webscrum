@@ -1,0 +1,21 @@
+<% if @user && session[:user_id] %>
+	<ul class="nav nav-pills">
+		<li><%= link_to "首页", :controller => "home" %></li>
+		<li><%= link_to "计划", :controller => "reports" %></li>
+		<li><%= link_to "组", :controller => "groups" %></li>
+		<li><%= link_to "写日报", :controller => "reports", :action => "new" %></li>
+		<li><%= link_to "写目标", :controller => "features" %></li>
+		<% if @selected_group %>
+			<li><%= link_to  @selected_group.name, :controller => "groups", :action => "show", :id => @selected_group.id %></li>
+		<% end %>
+		<li class="dropdown">
+		    <a class="dropdown-toggle" data-toggle="dropdown" href="/home"><%= @user.name %><b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><%= link_to "重选组", :controller => "home", :action => "groups" %></li>					
+				<li><%= link_to "个人版", :controller => "home", :action => "groups" %></li>
+				<li><%= link_to "注销", :controller => "user", :action => "logout" %></li>
+				<li><%= link_to "切换", :controller => "user", :action => "logout" %></li>
+			</ul>
+		</li>
+	</ul>
+<% end %>

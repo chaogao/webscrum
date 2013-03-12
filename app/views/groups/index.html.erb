@@ -1,0 +1,23 @@
+<div class="joined-groups">
+	<h4>Joined</h4>
+	<% @user.groups.each do |group| %>
+		<p>GroupName: <%= link_to group.name, :action => "show", :id => group %> &nbsp; Creator: <%= group.creator.name %><p>
+	<% end %>
+</div>
+<hr />
+<div class="created-groups">
+	<h4>Created</h4>
+	<% @user.admin_groups.each do |group| %>
+		<p><%= link_to group.name,  :action => "show", :id => group %> &nbsp; Creator: <%= group.creator.name %>
+			<%= link_to "Edit", :action => "edit", :id => group %>
+		<p>
+	<% end %>
+	<%= link_to "Create Group", :action => "new" %>
+</div>
+<hr />
+<div class="all-groups">
+	<h4>All Groups</h4>
+	<% @all_groups.each do |group| %>
+		<p>GroupName: <%= link_to group.name,  :action => "show", :id => group %> &nbsp; Creator: <%= group.creator.name %><p>
+	<% end %>
+</div>

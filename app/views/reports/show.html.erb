@@ -1,0 +1,7 @@
+<%= debug @features %>
+<% if @report %>
+  <h4><%= @report.title %></h4>
+  <p><%= @report.content %></p>
+<% else %>
+  <%= link_to "new", :action => "new", :id => @date %>
+<% end %>

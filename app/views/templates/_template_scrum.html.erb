@@ -1,0 +1,23 @@
+<textarea id="template-ftype-detail" style="display:none;">
+	{#foreach $T.rulers as row}
+		{#if $T.row.hide}
+			<input type="hidden" name="feature[{$T.row.name}]" {#if $T.row.default} value="{$T.row.default}" {#/if} >				
+		{#else}
+			<div class="control-group">
+				<label class="control-label">{$T.row.title}</label>
+				<div class="controls">
+					<input type="number" name="feature[{$T.row.name}]" {#if $T.row.default} value="{$T.row.default}" {#/if} >
+					{#if $T.row.name == "times"}
+						<span class="label label-info">设个频率</span>
+						<select name="feature[frequency]">
+							<option value="week">周</option>
+							<option value="month">月</option>
+							<option value="year">年</option>
+							<option value="custom">时间段</option>
+						</select>
+					{#/if}
+				</div>
+			</div>
+		{#/if}
+	{#/for}
+</textarea>

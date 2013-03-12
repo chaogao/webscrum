@@ -1,0 +1,17 @@
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <ul>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_for @user, :url => {:action => :registe} do |form| %>
+	<p>UserName: <%= form.text_field :name, :size => 30%></p>
+	<p>Email: <%= form.text_field :email, :size => 30 %></p>
+	<p>Password: <%= form.password_field :password, :size => 30 %></p>
+	<p>Password Confirmation: <%= form.password_field :password_confirmation, :size => 30 %></p>
+	<p><%= submit_tag "Registe It!" %></p>
+<% end %>

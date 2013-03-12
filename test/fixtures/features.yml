@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  progress: 1
+  plane_days: 1
+  use_days: 1
+
+two:
+  name: MyString
+  description: MyText
+  progress: 1
+  plane_days: 1
+  use_days: 1

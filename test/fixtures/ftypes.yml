@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  catalog: 1
+  owner: 1
+  show: 1
+  description: MyText
+  ruler: MyText
+
+two:
+  name: MyString
+  catalog: 1
+  owner: 1
+  show: 1
+  description: MyText
+  ruler: MyText

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @ftype.name %>
+</p>
+
+<p>
+  <b>Catalog:</b>
+  <%= @ftype.catalog %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @ftype.user_id %>
+</p>
+
+<p>
+  <b>Show:</b>
+  <%= @ftype.show %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @ftype.description %>
+</p>
+
+<p>
+  <b>Ruler:</b>
+  <%= @ftype.ruler %>
+</p>
+
+
+<%= link_to 'Edit', edit_ftype_path(@ftype) %> |
+<%= link_to 'Back', ftypes_path %>
