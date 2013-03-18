@@ -4,4 +4,7 @@
 	<p>Password: <%= password_field_tag :password %></p>
 	<p><%= submit_tag "login" %></p>
 	<p><%= link_to "registe", :action => "registe" %>
+	
+ 	<a href="https://graph.renren.com/oauth/authorize?client_id=<%= @appId %>&response_type=code&redirect_uri=<%= @redirectUri %>&display=page"><img style="border:0px" src="/img/renren_login_button.png"/></a>
+
 <% end %>

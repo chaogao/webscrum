@@ -1,9 +1,14 @@
 class UserController < ApplicationController
 	before_filter :authorize_redirect, :only => ["login", "registe"]
 	def login
+
+		@redirectUri = "http://www.mytest.com"
+       	@appId = "229479"
+
 		#hanlder login form
 		if request.post?
 			user = User.auth_login(params[:email], params[:password])
+
 			if user
 				session[:user_id] = user
 				redirect_to :controller => "home", :action => "groups"

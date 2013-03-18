@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-
   protected
   #used in before_filter
   def authorize
