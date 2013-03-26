@@ -1,9 +1,14 @@
 class UserController < ApplicationController
 	before_filter :authorize_redirect, :only => ["login", "registe"]
-	def login
+	
 
-		@redirectUri = "http://www.mytest.com"
-       	@appId = "229479"
+	def login
+		if params[:code]
+			@token = $client.auth_code.get_token(params[:code].to_s, :redirect_uri => 'http://www.mytest.com/user/login')
+			p @token
+		else
+			@authorize_url = $client.authorize_url
+		end
 
 		#hanlder login form
 		if request.post?
