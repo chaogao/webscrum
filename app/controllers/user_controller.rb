@@ -4,10 +4,12 @@ class UserController < ApplicationController
 
 	def login
 		if params[:code]
-			@token = $client.auth_code.get_token(params[:code].to_s, :redirect_uri => 'http://www.mytest.com/user/login')
+			@token = $client.auth_code.get_token(params[:code].to_s)
 			p @token
+			@friends = JSON.parse(@token.post('https://api.renren.com/restserver.do', :params => {:method => 'photos.getAlbums', :format => 'JSON', :uid => @token.params["user"]["id"]}).body)
+			p @friends
 		else
-			@authorize_url = $client.authorize_url
+			@authorize_url = $client.authorize_url({:scope => 'read_user_album'})
 		end
 
 		#hanlder login form
